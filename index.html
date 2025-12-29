@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Real estate listings - find your next home" />
+  <title>EstateFinder — Real Estate</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">EstateFinder</a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" role="navigation" aria-hidden="true">
+        <ul>
+          <li><a href="#listings">Listings</a></li>
+          <li><a href="#agents">Agents</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Find your next home</h1>
+        <p class="hero-sub">Browse curated properties — houses, condos, and land. Filter by price, beds, and location.</p>
+
+        <form id="search-form" class="search-form" aria-label="Property search">
+          <div class="search-row">
+            <input id="q-location" name="location" type="text" placeholder="City, neighborhood, or ZIP" />
+            <select id="q-min" name="min">
+              <option value="0">Min price</option>
+              <option value="100000">100k</option>
+              <option value="250000">250k</option>
+              <option value="500000">500k</option>
+            </select>
+            <select id="q-max" name="max">
+              <option value="999999999">Max price</option>
+              <option value="300000">300k</option>
+              <option value="600000">600k</option>
+              <option value="1000000">1M+</option>
+            </select>
+            <select id="q-beds" name="beds">
+              <option value="0">Any beds</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+            <button type="submit" class="btn primary">Search</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="listings" class="listings container">
+      <div class="section-head">
+        <h2>Featured Listings</h2>
+        <p class="muted">Click View to see details. This is a demo: replace placeholders with real data or integrate your backend.</p>
+      </div>
+
+      <div id="cards" class="cards">
+        <!-- Property card template — each card has data attributes for filtering -->
+        <article class="card" data-price="450000" data-beds="3" data-location="downtown">
+          <div class="card-media" style="background-image:url('https://via.placeholder.com/640x360?text=House+1');" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3 class="price">$450,000</h3>
+            <p class="address">123 Maple St, Downtown</p>
+            <p class="meta">3 bd • 2 ba • 1,850 sqft</p>
+            <div class="card-actions">
+              <button class="btn small ghost view-btn" data-id="p1">View</button>
+              <button class="btn small" data-agent="agent-1" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Agent</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-price="725000" data-beds="4" data-location="suburb">
+          <div class="card-media" style="background-image:url('https://via.placeholder.com/640x360?text=House+2');" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3 class="price">$725,000</h3>
+            <p class="address">78 Oak Lane, Pleasantville</p>
+            <p class="meta">4 bd • 3 ba • 2,600 sqft</p>
+            <div class="card-actions">
+              <button class="btn small ghost view-btn" data-id="p2">View</button>
+              <button class="btn small" data-agent="agent-2" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Agent</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-price="299000" data-beds="2" data-location="waterfront">
+          <div class="card-media" style="background-image:url('https://via.placeholder.com/640x360?text=Condo+1');" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3 class="price">$299,000</h3>
+            <p class="address">45 Bayview Ave, Waterfront</p>
+            <p class="meta">2 bd • 1 ba • 950 sqft</p>
+            <div class="card-actions">
+              <button class="btn small ghost view-btn" data-id="p3">View</button>
+              <button class="btn small" data-agent="agent-3" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Agent</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-price="1250000" data-beds="5" data-location="hills">
+          <div class="card-media" style="background-image:url('https://via.placeholder.com/640x360?text=Luxury+Estate');" aria-hidden="true"></div>
+          <div class="card-body">
+            <h3 class="price">$1,250,000</h3>
+            <p class="address">900 Ridge Rd, Hills</p>
+            <p class="meta">5 bd • 4.5 ba • 4,200 sqft</p>
+            <div class="card-actions">
+              <button class="btn small ghost view-btn" data-id="p4">View</button>
+              <button class="btn small" data-agent="agent-1" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Agent</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="agents" class="agents container">
+      <h2>Our Agents</h2>
+      <div class="agent-grid">
+        <div class="agent-card" id="agent-1">
+          <div class="agent-avatar" aria-hidden="true" style="background-image:url('https://via.placeholder.com/120?text=A1')"></div>
+          <h3>Jamie Carter</h3>
+          <p class="muted">Senior Agent — Downtown & Hills</p>
+        </div>
+        <div class="agent-card" id="agent-2">
+          <div class="agent-avatar" aria-hidden="true" style="background-image:url('https://via.placeholder.com/120?text=A2')"></div>
+          <h3>Rina Patel</h3>
+          <p class="muted">Family Homes — Suburb</p>
+        </div>
+        <div class="agent-card" id="agent-3">
+          <div class="agent-avatar" aria-hidden="true" style="background-image:url('https://via.placeholder.com/120?text=A3')"></div>
+          <h3>Mark Alvarez</h3>
+          <p class="muted">Condos & Waterfront</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <h2>About EstateFinder</h2>
+      <p>EstateFinder helps buyers and renters discover properties with clear pricing and agent contact options. This template is a starting point — add map integration, listings API, and authentication for saved searches.</p>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Contact</h2>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Message (include property or agent if applicable)</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn primary">Send Inquiry</button>
+        </div>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> EstateFinder. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Property detail modal -->
+  <div id="property-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-panel" role="document">
+      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+      <div id="modal-content" class="modal-content">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
